@@ -1,0 +1,76 @@
+{
+  "Vanilla AE": {
+    "test_mse": 0.00651106253692082,
+    "test_psnr": 22.9891787109375,
+    "test_ssim": 0.7889407893589565,
+    "fid": null,
+    "hidden_zero_frac": 0.42147544026374817,
+    "hidden_mean_act": 1.0196374654769897,
+    "latency_ms_batch64": 0.23118346668222028,
+    "latency_kind": "reconstruction",
+    "train_time_per_epoch_s": 6.549973901112875,
+    "latent_dim": "64"
+  },
+  "Sparse AE": {
+    "test_mse": 0.006761225572654179,
+    "test_psnr": 22.830716116768972,
+    "test_ssim": 0.7859433888026646,
+    "fid": null,
+    "hidden_zero_frac": 0.6168816685676575,
+    "hidden_mean_act": 0.28057965636253357,
+    "latency_ms_batch64": 0.22104870001082114,
+    "latency_kind": "reconstruction",
+    "train_time_per_epoch_s": 6.714515352249146,
+    "latent_dim": "64 (bottleneck) / 256 (sparse)"
+  },
+  "VAE": {
+    "test_mse": 0.013151568140302385,
+    "test_psnr": 19.649848423549106,
+    "test_ssim": 0.6488351571219309,
+    "fid": 86.72401172679088,
+    "latency_ms_batch64": 0.15062026668601902,
+    "latency_kind": "generation",
+    "train_time_per_epoch_s": 6.893085424105326,
+    "latency_recon_ms_batch64": 0.20645530000062232,
+    "latent_dim": "64"
+  },
+  "Vanilla GAN": {
+    "test_mse": null,
+    "test_psnr": null,
+    "test_ssim": null,
+    "fid": 127.83406458491478,
+    "latency_ms_batch64": 0.25945953336001065,
+    "latency_kind": "generation",
+    "train_time_per_epoch_s": 8.7507810652256,
+    "latent_dim": "100 (prior)",
+    "g_loss_std_last10": 0.005474953077429045,
+    "d_loss_std_last10": 0.002690604422997832,
+    "d_real_last": 0.5477524995803833,
+    "d_fake_last": 0.45204174518585205
+  },
+  "DCGAN": {
+    "test_mse": null,
+    "test_psnr": null,
+    "test_ssim": null,
+    "fid": 14.569314712647326,
+    "latency_ms_batch64": 11.644305599990428,
+    "latency_kind": "generation",
+    "train_time_per_epoch_s": 28.08048005104065,
+    "latent_dim": "100 (prior)",
+    "g_loss_std_last10": 0.05024571284521982,
+    "d_loss_std_last10": 0.056097943970503224,
+    "d_real_last": 0.7790070176124573,
+    "d_fake_last": 0.22051364183425903
+  },
+  "DDPM": {
+    "test_mse": null,
+    "test_psnr": null,
+    "test_ssim": null,
+    "fid": 14.028674110101122,
+    "latency_ms_batch64": 7891.808789666659,
+    "latency_kind": "generation",
+    "train_time_per_epoch_s": 21.187346053123473,
+    "latent_dim": "28x28",
+    "loss_std_last10": 0.0003636933305966825
+  }
+}

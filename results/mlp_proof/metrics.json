@@ -1,0 +1,39 @@
+{
+  "stage1_mlp_classifier": {
+    "test_acc": 0.8927142857142857,
+    "target_88_met": true
+  },
+  "stage2_class_projection": {
+    "raw_min": 0.01819138415157795,
+    "raw_max": 0.942193865776062,
+    "raw_mean": 0.4732625186443329
+  },
+  "stage3_latent_projection": {
+    "wt_projection": {
+      "mse": 0.29780695942470004,
+      "psnr": 5.295069222586496,
+      "ssim": 0.06817122745513916
+    },
+    "mean_image_baseline": {
+      "mse": 0.08740933622632707,
+      "psnr": 10.907625383649554,
+      "ssim": 0.13208016218457902
+    }
+  },
+  "stage4_frozen_decoding": {
+    "frozen_decoder_z_mlp": {
+      "mse": 0.01613810133934021,
+      "psnr": 18.693508562360492,
+      "ssim": 0.6077017418997628
+    },
+    "vanilla_ae_z64": {
+      "mse": 0.006522118602480208,
+      "psnr": 22.98140056501116,
+      "ssim": 0.7901787894112723
+    }
+  },
+  "stage5_prior_sampling": {
+    "z_mlp_frac_exact_zero": 0.43059152364730835,
+    "z_rand_frac_negative": 0.17265625298023224
+  }
+}
