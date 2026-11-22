@@ -38,12 +38,12 @@ def get_dataloaders(
     num_workers: int = 2,
     seed: int = SEED,
 ) -> Tuple[DataLoader, DataLoader, DataLoader]:
-   
+    # piksel di [0, 1]; GAN/DDPM nanti di-rescale ke [-1, 1] di script masing-masing
     tfm = transforms.ToTensor()
     train_raw = datasets.FashionMNIST(root, train=True, download=True, transform=tfm)
     test_raw = datasets.FashionMNIST(root, train=False, download=True, transform=tfm)
 
-    
+    # gabung split resmi (60k + 10k = 70k) lalu bagi ulang 80/10/10 sesuai panduan
     full = ConcatDataset([train_raw, test_raw])
     n = len(full)
     n_train, n_val = n * 8 // 10, n // 10
