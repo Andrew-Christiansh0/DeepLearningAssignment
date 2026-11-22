@@ -32,6 +32,14 @@ def _seed_worker(worker_id: int) -> None:
     random.seed(s)
 
 
+def to_signed(x: torch.Tensor) -> torch.Tensor:
+    return x * 2 - 1                          # [0, 1] -> [-1, 1]  (GAN / DCGAN / DDPM)
+
+
+def to_unit(x: torch.Tensor) -> torch.Tensor:
+    return (x.clamp(-1, 1) + 1) / 2           # [-1, 1] -> [0, 1]  (metrik, FID, gambar)
+
+
 def get_dataloaders(
     root: str = "data",
     batch_size: int = 128,

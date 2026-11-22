@@ -41,7 +41,7 @@ def draw_rows(ax, rows: List[torch.Tensor], labels: List[str], title: Optional[s
 
 
 def save_rows(path, rows: List[torch.Tensor], labels: List[str], title: Optional[str] = None,
-              col_labels: Optional[List[str]] = None, dpi: int = 200) -> None:
+              col_labels: Optional[List[str]] = None, dpi: int = 300) -> None:
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     fig, ax = plt.subplots(figsize=(0.9 * rows[0].shape[0] + 1.5, 0.9 * len(rows) + 0.8))
@@ -49,3 +49,12 @@ def save_rows(path, rows: List[torch.Tensor], labels: List[str], title: Optional
     fig.tight_layout()
     fig.savefig(path, dpi=dpi, bbox_inches="tight")
     plt.close(fig)
+
+
+def draw_grid(ax, imgs: torch.Tensor, nrow: int = 4, title: Optional[str] = None, pad: int = 2) -> None:
+    # imgs: (N, 1, H, W) di [0, 1] -> kisi nrow kolom
+    grid = make_grid(imgs.detach().cpu().float().clamp(0, 1), nrow=nrow, padding=pad, pad_value=1.0)
+    ax.imshow(grid[0].numpy(), cmap="gray", vmin=0, vmax=1)
+    ax.axis("off")
+    if title:
+        ax.set_title(title, fontsize=10)
